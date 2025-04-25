@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Gallery</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Image Gallery</h1>
+    <a href="/upload" class="upload-link">Upload Image</a>
+    <div class="gallery">
+      <% if (images.length > 0) { %>
+        <% images.forEach(img => { %>
+          <div class="image-box">
+            <img src="/uploads/<%= img.filename %>" alt="uploaded image">
+            <button class="delete-btn" onclick="deleteImage('filename.jpg')">🗑 Delete</button>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p>No images uploaded yet.</p>
+      <% } %>
+    </div>
+  </div>
+</body>
+</html>
